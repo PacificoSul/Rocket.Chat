@@ -28,7 +28,9 @@ function directorySearch(config, cb) {
 				return {
 					name: result.name,
 					username: result.username,
-					createdAt: timeAgo(result.createdAt)
+					local: result.customFields && result.customFields.local,
+					ramal: result.customFields && result.customFields.ramal,
+					email: result.customFields && result.customFields.email
 				};
 			}
 		}));
@@ -103,7 +105,7 @@ Template.directory.events({
 
 Template.directory.onCreated(function() {
 	this.searchText = new ReactiveVar('');
-	this.searchType = new ReactiveVar('channels');
+	this.searchType = new ReactiveVar('users');
 	this.searchSortBy = new ReactiveVar('name');
 	this.sortDirection = new ReactiveVar('asc');
 	this.page = new ReactiveVar(0);

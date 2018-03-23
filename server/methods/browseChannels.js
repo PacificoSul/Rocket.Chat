@@ -80,7 +80,8 @@ Meteor.methods({
 				username: 1,
 				name: 1,
 				createdAt: 1,
-				emails: 1
+				emails: 1,
+				customFields: 1
 			}
 		}).fetch();
 	}

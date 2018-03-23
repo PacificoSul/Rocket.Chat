@@ -1,20 +1,13 @@
 <template name="directory">
 	<section class="rc-directory">
 		{{# header sectionName="Directory" hideHelp=true}}
-		<div class="rc-directory-header">
-		<select class="rc-input__element rc-directory-selector js-typeSelector" name="type">
-				<option value="channels">Channels</option>
-				<option value="users">Users</option>
-			</select>
-			<div class="rc-input rc-input--small rc-directory-search">
-				<label class="rc-input__label">
-					<div class="rc-input__wrapper">
-						{{> icon icon="magnifier" block="rc-input__icon" }}
-						<input type="text" class="rc-input__element rc-input__element--small js-search" name="message-search" id="message-search" placeholder="Search Messages" autocomplete="off">
-					</div>
-				</label>
-			</div>
-			<button class="rc-button rc-button--small rc-button--primary rc-directory-plus">{{> icon icon="plus" }}</button>
+		<div class="rc-input rc-input--small">
+			<label class="rc-input__label">
+				<div class="rc-input__wrapper">
+					{{> icon icon="magnifier" block="rc-input__icon" }}
+					<input type="text" class="rc-input__element rc-input__element--small js-search" name="message-search" id="message-search" placeholder="Procurar usuários por nome ou local" autocomplete="off">
+				</div>
+			</label>
 		</div>
 		{{/header}}
 		<div class="rc-directory-content">
@@ -58,8 +51,9 @@
 					<thead class="rc-table-head">
 						<tr class="rc-table-tr">
 							<td class="rc-table-td js-sort" data-sort="name">Name {{> icon icon="sort" }}</td>
-							<td class="rc-table-td js-sort" data-sort="username">Username {{> icon icon="sort" }}</td>
-							<td class="rc-table-td js-sort" data-sort="createdAt">Created At {{> icon icon="sort" }}</td>
+							<td class="rc-table-td">Local</td>
+							<td class="rc-table-td">Ramal</td>
+							<td class="rc-table-td">Email</td>
 						</tr>
 					</thead>
 					<tbody class="rc-table-body">
@@ -76,10 +70,9 @@
 										</div>
 									</div>
 								</td>
-								<td class="rc-table-td rc-table-td--username">{{username}}</td>
-								<td class="rc-table-td rc-table-td--createdAt">
-									<span class="rc-directory-channel-createdAt">{{createdAt}}</span>
-								</td>
+								<td class="rc-table-td">{{local}}</td>
+								<td class="rc-table-td">{{ramal}}</td>
+								<td class="rc-table-td">{{email}}</td>
 							</tr>
 						{{/each}}
 					</tbody>
